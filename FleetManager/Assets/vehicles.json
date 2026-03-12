@@ -1,5 +1,57 @@
 [
   {
-    
-  }
+    "marka": "Scania",
+    "model": "P360",
+    "rokProdukcji": 2015,
+    "iloscPaliwa": "80%",
+    "statusPojazdu": "W serwisie"
+  },{
+  "marka": "Volvo",
+  "model": "FL",
+  "rokProdukcji": 2024,
+  "iloscPaliwa": "5%",
+  "statusPojazdu": "W garażu"
+},{
+  "marka": "Iveco",
+  "model": "EuroCargo",
+  "rokProdukcji": 2011,
+  "iloscPaliwa": "69%",
+  "statusPojazdu": "W trasie"
+},{
+  "marka": "Mercedes",
+  "model": "Atego",
+  "rokProdukcji": 1998,
+  "iloscPaliwa": "23%",
+  "statusPojazdu": "W garażu"
+},{
+  "marka": "Scania",
+  "model": "G410",
+  "rokProdukcji": 2022,
+  "iloscPaliwa": "10%",
+  "statusPojazdu": "W trasie"
+},{
+  "marka": "Star",
+  "model": "266",
+  "rokProdukcji": 1976,
+  "iloscPaliwa": "90%",
+  "statusPojazdu": "W trasie"
+},{
+  "marka": "Jelcz",
+  "model": "442.32",
+  "rokProdukcji": 1965,
+  "iloscPaliwa": "78%",
+  "statusPojazdu": "W trasie"
+},{
+  "marka": "Man",
+  "model": "TGA",
+  "rokProdukcji": 1998,
+  "iloscPaliwa": "46%",
+  "statusPojazdu": "W garażu"
+},{
+  "marka": "Volkswagen",
+  "model": "T4",
+  "rokProdukcji": 1996,
+  "iloscPaliwa": "54%",
+  "statusPojazdu": "W garażu"
+}
 ]
