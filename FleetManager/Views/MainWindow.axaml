@@ -15,6 +15,38 @@
         <vm:MainWindowViewModel/>
     </Design.DataContext>
 
-    <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+    <ScrollViewer>
+        <StackPanel>
+            <TextBlock Text="Aplikacja do kontroli floty." Padding="10" TextAlignment="Center"/>
+            
+            <TextBlock Text="Dodawanie nowego auta" Padding="10, 0, 10, 10"/>
+            <TextBox Watermark="Marka" Text="{Binding NowaMarka}"/>
+            <TextBox Watermark="Model" Text="{Binding NowyModel}"/>
+            <TextBox Watermark="RokProdukcji" Text="{Binding NowyRokProdukcji}"/>
+            <TextBox Watermark="IloscPaliwa w %" Text="{Binding NowaIloscPaliwa}"/>
+            <TextBox Watermark="Status pojazdu (w garażu, w trasie, w serwisie)" Text="{Binding NowyStatus}"/>
 
+            <Button Content="Dodaj pojazd" Command="{Binding AddCommand}"/>
+            
+            
+            
+            <ListBox ItemsSource="{Binding Vehicles}">
+            
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Width="400" Spacing="5">
+                            <TextBlock Text="{Binding Marka}"/>
+                            <TextBlock Text="{Binding Model}"/>
+                            <TextBlock Text="{Binding RokProdukcji}"/>
+                            <TextBlock Text="{Binding IloscPaliwa}"/>
+                            <TextBlock Text="{Binding StatusPojazdu}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            
+            <Button Content="Zapisz zmiany do JSON" Command="{Binding SaveCommand}"/>
+            
+        </StackPanel>
+    </ScrollViewer>
 </Window>
