@@ -35,11 +35,11 @@
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Width="400" Spacing="5">
-                            <TextBlock Text="{Binding Marka}"/>
-                            <TextBlock Text="{Binding Model}"/>
-                            <TextBlock Text="{Binding RokProdukcji}"/>
-                            <TextBlock Text="{Binding IloscPaliwa}"/>
-                            <TextBlock Text="{Binding StatusPojazdu}"/>
+                            <TextBlock Text="{Binding Marka, StringFormat='Marka: {0}'}"/>
+                            <TextBlock Text="{Binding Model, StringFormat='Model: {0}'}"/>
+                            <TextBlock Text="{Binding RokProdukcji, StringFormat='Rok produkcji: {0}'}"/>
+                            <TextBlock Text="{Binding IloscPaliwa, StringFormat='Ile paliwa: {0}'}"/>
+                            <TextBlock Text="{Binding StatusPojazdu, StringFormat='Status pojazdu: {0}'}"/>
                         </StackPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
