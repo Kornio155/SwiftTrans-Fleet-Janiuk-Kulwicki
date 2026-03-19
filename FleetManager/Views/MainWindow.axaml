@@ -40,6 +40,7 @@
                             <TextBlock Text="{Binding RokProdukcji, StringFormat='Rok produkcji: {0}'}"/>
                             <TextBlock Text="{Binding IloscPaliwa, StringFormat='Ile paliwa: {0}'}"/>
                             <TextBlock Text="{Binding StatusPojazdu, StringFormat='Status pojazdu: {0}'}"/>
+                            
                         </StackPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
