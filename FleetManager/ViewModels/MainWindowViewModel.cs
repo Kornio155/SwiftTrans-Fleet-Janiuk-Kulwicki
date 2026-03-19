@@ -13,7 +13,7 @@ namespace FleetManager.ViewModels;
 
 public class MainWindowViewModel : ViewModelBase
 {
-    private const string Sciezka = "/home/kornel/RiderProjects/SwiftTrans-Fleet-Janiuk-Kulwicki/FleetManager/Assets/vehicles.json";
+    private const string Sciezka = "/home/julian/RiderProjects/SwiftTrans-Fleet-Janiuk-Kulwicki/FleetManager/Assets/vehicles.json";
 
     private static readonly JsonSerializerOptions JsonOptions = new() { WriteIndented = true };
 
@@ -50,22 +50,12 @@ public class MainWindowViewModel : ViewModelBase
 
     private void SaveToJson()
     {
-        try
+        string json = JsonSerializer.Serialize(Vehicles, JsonOptions);
+
+        using (StreamWriter sw = new StreamWriter(Sciezka))
         {
-            File.WriteAllText(Sciezka, JsonSerializer.Serialize(Vehicles, JsonOptions));
-            Console.WriteLine("Zapisane");
-        }
-        catch
-            (Exception exception) when (exception is
-                                            IOException or
-                                            UnauthorizedAccessException or
-                                            JsonException)
-        {
-            Console.WriteLine($"Save File Error {exception.Message}");
-        }
-        catch (Exception exception)
-        {
-            Console.WriteLine($"Unexpected error (report this!): {exception.Message}");
+            sw.Write(json);
+            Console.WriteLine("Saved changes to JSON");
         }
     }
 
