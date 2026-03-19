@@ -22,8 +22,8 @@ public class MainWindowViewModel : ViewModelBase
     
     [Reactive] public string NowaMarka {get; set;} = string.Empty;
     [Reactive] public string NowyModel {get; set;} = string.Empty;
-    [Reactive] public int NowyRokProdukcji { get; set; } = 0000;
-    [Reactive] public string NowaIloscPaliwa {get; set;} = "5%";
+    [Reactive] public int NowyRokProdukcji { get; set; } = 1990;
+    [Reactive] public int NowaIloscPaliwa {get; set;} = 5;
     [Reactive] public string NowyStatus {get; set;} = "W garażu";
     
     public ReactiveCommand<Unit, Unit> AddCommand { get; }
