@@ -27,8 +27,7 @@
             <TextBox Watermark="Status pojazdu (w garażu, w trasie, w serwisie)" Text="{Binding NowyStatus}"/>
 
             <Button Content="Dodaj pojazd" Command="{Binding AddCommand}"/>
-            
-            
+            <Button Content="Zapisz zmiany do JSON" Command="{Binding SaveCommand}"/>
             
             <ListBox ItemsSource="{Binding Vehicles}"
                      SelectedItem="{Binding SelectedVehicle}"
@@ -46,26 +45,15 @@
                                 <TextBlock Text="{Binding Model, StringFormat='Model: {0}'}"/>
                                 <TextBlock Text="{Binding RokProdukcji, StringFormat='Rok produkcji: {0}'}"/>
                                 <TextBlock Text="{Binding IloscPaliwa, StringFormat='Paliwo: {0}%'}"/>
-                                <TextBlock Text="{Binding StatusPojazdu, StringFormat='Status: {0}'}"/>
+                                <TextBlock Text="{Binding StatusPojazdu, StringFormat='Status: {0}'}"/> 
+                                <Button Content="Usuń"
+                                        Command="{Binding DataContext.DeleteCommand, ElementName=VehiclesList}"
+                                        CommandParameter="{Binding}" />
                             </StackPanel>
-
                         </Border>
-                        <StackPanel Width="400" Spacing="5">
-                            <TextBlock Text="{Binding Marka, StringFormat='Marka: {0}'}"/>
-                            <TextBlock Text="{Binding Model, StringFormat='Model: {0}'}"/>
-                            <TextBlock Text="{Binding RokProdukcji, StringFormat='Rok produkcji: {0}'}"/>
-                            <TextBlock Text="{Binding IloscPaliwa, StringFormat='Ile paliwa: {0}'}"/>
-                            <TextBlock Text="{Binding StatusPojazdu, StringFormat='Status pojazdu: {0}'}"/>
-                            <Button Content="Usuń"
-                                    Command="{Binding DataContext.DeleteCommand, ElementName=VehiclesList}"
-                                    CommandParameter="{Binding}" />
-                        </StackPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
-            
-            <Button Content="Zapisz zmiany do JSON" Command="{Binding SaveCommand}"/>
-            
         </StackPanel>
     </ScrollViewer>
 </Window>

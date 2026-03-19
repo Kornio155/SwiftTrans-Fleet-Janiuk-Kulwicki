@@ -15,7 +15,7 @@ namespace FleetManager.ViewModels;
 
 public class MainWindowViewModel : ViewModelBase
 {
-    private const string Sciezka = "/home/kornel/RiderProjects/SwiftTrans-Fleet-Janiuk-Kulwicki/FleetManager/Assets/vehicles.json";
+    private const string Sciezka = "/home/julian/RiderProjects/SwiftTrans-Fleet-Janiuk-Kulwicki/FleetManager/Assets/vehicles.json";
 
     private static readonly JsonSerializerOptions JsonOptions = new() { WriteIndented = true };
 
