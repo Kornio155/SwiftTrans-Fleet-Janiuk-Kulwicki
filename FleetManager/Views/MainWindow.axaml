@@ -19,8 +19,6 @@
         <StackPanel>
             <TextBlock Text="Aplikacja do kontroli floty." Padding="10" TextAlignment="Center"/>
             
-            <TextBlock Text="{Binding LiczbaPojazdow, StringFormat='Liczba pojazdów: {0}'}" Padding="10, 0, 10, 10"/>
-            
             <TextBlock Text="Dodawanie nowego auta" Padding="10, 0, 10, 10"/>
             <TextBox Watermark="Marka" Text="{Binding NowaMarka}"/>
             <TextBox Watermark="Model" Text="{Binding NowyModel}"/>
@@ -32,7 +30,9 @@
             
             
             
-            <ListBox ItemsSource="{Binding Vehicles}">
+            <ListBox ItemsSource="{Binding Vehicles}"
+                     SelectedItem="{Binding SelectedVehicle}"
+                     Name="VehiclesList">
             
                 <ListBox.ItemTemplate>
                     <DataTemplate>
@@ -50,6 +50,16 @@
                             </StackPanel>
 
                         </Border>
+                        <StackPanel Width="400" Spacing="5">
+                            <TextBlock Text="{Binding Marka, StringFormat='Marka: {0}'}"/>
+                            <TextBlock Text="{Binding Model, StringFormat='Model: {0}'}"/>
+                            <TextBlock Text="{Binding RokProdukcji, StringFormat='Rok produkcji: {0}'}"/>
+                            <TextBlock Text="{Binding IloscPaliwa, StringFormat='Ile paliwa: {0}'}"/>
+                            <TextBlock Text="{Binding StatusPojazdu, StringFormat='Status pojazdu: {0}'}"/>
+                            <Button Content="Usuń"
+                                    Command="{Binding DataContext.DeleteCommand, ElementName=VehiclesList}"
+                                    CommandParameter="{Binding}" />
+                        </StackPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>

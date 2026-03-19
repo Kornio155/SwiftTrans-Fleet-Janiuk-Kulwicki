@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
+using System.Linq;
 using System.Reactive;
 using System.Reactive.Linq;
 using System.Text.Json;
+using Avalonia.Controls;
 using FleetManager.Models;
 using ReactiveUI;
 using ReactiveUI.Fody.Helpers;
@@ -20,6 +22,8 @@ public class MainWindowViewModel : ViewModelBase
     public ObservableCollection<Vehicle> Vehicles { get; } = [];
     public int LiczbaPojazdow => Vehicles.Count;
     
+    [Reactive] public Vehicle? SelectedVehicle { get; set; }
+    
     [Reactive] public string NowaMarka {get; set;} = string.Empty;
     [Reactive] public string NowyModel {get; set;} = string.Empty;
     [Reactive] public int NowyRokProdukcji { get; set; } = 1990;
@@ -28,6 +32,8 @@ public class MainWindowViewModel : ViewModelBase
     
     public ReactiveCommand<Unit, Unit> AddCommand { get; }
     public ReactiveCommand<Unit, Unit> SaveCommand { get; }
+    
+    public ReactiveCommand<Vehicle, Unit> DeleteCommand { get; }
 
     public MainWindowViewModel()
     {
@@ -40,6 +46,7 @@ public class MainWindowViewModel : ViewModelBase
         
         AddCommand = ReactiveCommand.Create(AddVehicles);
         SaveCommand = ReactiveCommand.Create(SaveToJson);
+        DeleteCommand = ReactiveCommand.Create<Vehicle>(DeleteVehicle);
     }
 
     private void AddVehicles()
@@ -85,4 +92,11 @@ public class MainWindowViewModel : ViewModelBase
         }
     }
     
+    private void DeleteVehicle(Vehicle vehicle)
+    {
+        if (vehicle != null)
+        {
+            Vehicles.Remove(vehicle);
+        }
+    }
 }
