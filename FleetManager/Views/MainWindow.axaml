@@ -18,7 +18,7 @@
     <ScrollViewer>
         <StackPanel>
             <TextBlock Text="Aplikacja do kontroli floty." Padding="10" TextAlignment="Center"/>
-            
+            <TextBlock Text="{Binding LiczbaPojazdow, StringFormat='Liczba pojazdów: {0}'}" Padding="10, 0, 10, 10"/>
             <TextBlock Text="Dodawanie nowego auta" Padding="10, 0, 10, 10"/>
             <TextBox Watermark="Marka" Text="{Binding NowaMarka}"/>
             <TextBox Watermark="Model" Text="{Binding NowyModel}"/>
