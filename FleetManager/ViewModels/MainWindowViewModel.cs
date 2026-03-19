@@ -13,7 +13,7 @@ namespace FleetManager.ViewModels;
 
 public class MainWindowViewModel : ViewModelBase
 {
-    private const string Sciezka = "Assets/vehicles.json";
+    private const string Sciezka = "/home/kornel/RiderProjects/SwiftTrans-Fleet-Janiuk-Kulwicki/FleetManager/Assets/vehicles.json";
 
     private static readonly JsonSerializerOptions JsonOptions = new() { WriteIndented = true };
 
@@ -77,7 +77,7 @@ public class MainWindowViewModel : ViewModelBase
             var jsonData = File.ReadAllText(Sciezka);
             var list = JsonSerializer.Deserialize<List<Vehicle>>(jsonData);
             Vehicles.Clear();
-            if (list != null) return;
+            if (list == null) return;
             foreach (var vehicle in list)
             {
                 Vehicles.Add(vehicle);
