@@ -13,11 +13,12 @@ namespace FleetManager.ViewModels;
 
 public class MainWindowViewModel : ViewModelBase
 {
-    private const string Sciezka = "/home/julian/RiderProjects/SwiftTrans-Fleet-Janiuk-Kulwicki/FleetManager/Assets/vehicles.json";
+    private const string Sciezka = "/home/kornel/RiderProjects/SwiftTrans-Fleet-Janiuk-Kulwicki/FleetManager/Assets/vehicles.json";
 
     private static readonly JsonSerializerOptions JsonOptions = new() { WriteIndented = true };
 
     public ObservableCollection<Vehicle> Vehicles { get; } = [];
+    public int LiczbaPojazdow => Vehicles.Count;
     
     [Reactive] public string NowaMarka {get; set;} = string.Empty;
     [Reactive] public string NowyModel {get; set;} = string.Empty;
@@ -31,6 +32,11 @@ public class MainWindowViewModel : ViewModelBase
     public MainWindowViewModel()
     {
         LoadVehicles();
+        
+        Vehicles.CollectionChanged += (_, _) =>
+        {
+            this.RaisePropertyChanged(nameof(LiczbaPojazdow));
+        };
         
         AddCommand = ReactiveCommand.Create(AddVehicles);
         SaveCommand = ReactiveCommand.Create(SaveToJson);
