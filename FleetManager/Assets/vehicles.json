@@ -4,76 +4,103 @@
     "Model": "P360",
     "RokProdukcji": 2015,
     "IloscPaliwa": 80,
-    "StatusPojazdu": "W serwisie"
+    "StatusPojazdu": "W serwisie",
+    "KolorTla": "LightGreen"
   },
   {
     "Marka": "Volvo",
     "Model": "FL",
     "RokProdukcji": 2024,
     "IloscPaliwa": 5,
-    "StatusPojazdu": "W gara\u017Cu"
+    "StatusPojazdu": "W gara\u017Cu",
+    "KolorTla": "Tomato"
   },
   {
     "Marka": "Iveco",
     "Model": "EuroCargo",
     "RokProdukcji": 2011,
     "IloscPaliwa": 69,
-    "StatusPojazdu": "W trasie"
+    "StatusPojazdu": "W trasie",
+    "KolorTla": "LightGreen"
   },
   {
     "Marka": "Mercedes",
     "Model": "Atego",
     "RokProdukcji": 1998,
     "IloscPaliwa": 23,
-    "StatusPojazdu": "W gara\u017Cu"
+    "StatusPojazdu": "W gara\u017Cu",
+    "KolorTla": "Gold"
   },
   {
     "Marka": "Scania",
     "Model": "G410",
     "RokProdukcji": 2022,
     "IloscPaliwa": 10,
-    "StatusPojazdu": "W trasie"
+    "StatusPojazdu": "W trasie",
+    "KolorTla": "Tomato"
   },
   {
     "Marka": "Star",
     "Model": "266",
     "RokProdukcji": 1976,
     "IloscPaliwa": 90,
-    "StatusPojazdu": "W trasie"
+    "StatusPojazdu": "W trasie",
+    "KolorTla": "LightGreen"
   },
   {
     "Marka": "Jelcz",
     "Model": "442.32",
     "RokProdukcji": 1965,
     "IloscPaliwa": 78,
-    "StatusPojazdu": "W trasie"
+    "StatusPojazdu": "W trasie",
+    "KolorTla": "LightGreen"
   },
   {
     "Marka": "Man",
     "Model": "TGA",
     "RokProdukcji": 1998,
     "IloscPaliwa": 46,
-    "StatusPojazdu": "W gara\u017Cu"
+    "StatusPojazdu": "W gara\u017Cu",
+    "KolorTla": "LightGreen"
   },
   {
     "Marka": "Volkswagen",
     "Model": "T4",
     "RokProdukcji": 1996,
     "IloscPaliwa": 54,
-    "StatusPojazdu": "W gara\u017Cu"
+    "StatusPojazdu": "W gara\u017Cu",
+    "KolorTla": "LightGreen"
   },
   {
     "Marka": "Ford",
     "Model": "Focus",
     "RokProdukcji": 2005,
     "IloscPaliwa": 56,
-    "StatusPojazdu": "W trasie"
+    "StatusPojazdu": "W trasie",
+    "KolorTla": "LightGreen"
   },
   {
     "Marka": "Opel",
     "Model": "Antara",
     "RokProdukcji": 2007,
     "IloscPaliwa": 38,
-    "StatusPojazdu": "W gara\u017Cu"
+    "StatusPojazdu": "W gara\u017Cu",
+    "KolorTla": "LightGreen"
+  },
+  {
+    "Marka": "Toyota",
+    "Model": "Supra",
+    "RokProdukcji": 2004,
+    "IloscPaliwa": 15,
+    "StatusPojazdu": "W serwisie",
+    "KolorTla": "Gold"
+  },
+  {
+    "Marka": "BMW",
+    "Model": "E36",
+    "RokProdukcji": 2002,
+    "IloscPaliwa": 56,
+    "StatusPojazdu": "W gara\u017Cu",
+    "KolorTla": "LightGreen"
   }
 ]

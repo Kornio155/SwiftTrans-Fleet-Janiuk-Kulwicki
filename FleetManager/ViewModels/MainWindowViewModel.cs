@@ -7,7 +7,7 @@ using System.Reactive;
 using System.Reactive.Linq;
 using System.Text.Json;
 using Avalonia.Controls;
-using FleetManager.Models;
+using FleetManager.Views;
 using ReactiveUI;
 using ReactiveUI.Fody.Helpers;
 
@@ -15,12 +15,17 @@ namespace FleetManager.ViewModels;
 
 public class MainWindowViewModel : ViewModelBase
 {
-    private const string Sciezka = "/home/julian/RiderProjects/SwiftTrans-Fleet-Janiuk-Kulwicki/FleetManager/Assets/vehicles.json";
+    private const string Sciezka = "C:\\Users\\korne\\RiderProjects\\SwiftTrans-Fleet-Janiuk-Kulwicki\\FleetManager\\Assets\\vehicles.json";
 
     private static readonly JsonSerializerOptions JsonOptions = new() { WriteIndented = true };
 
     public ObservableCollection<Vehicle> Vehicles { get; } = [];
     public int LiczbaPojazdow => Vehicles.Count;
+    public int LiczbaWGarażu => Vehicles.Count(v => v.StatusPojazdu == "W garażu");
+
+    public int LiczbaWTrasie => Vehicles.Count(v => v.StatusPojazdu == "W trasie");
+
+    public int LiczbaWSerwisie => Vehicles.Count(v => v.StatusPojazdu == "W serwisie");
     
     [Reactive] public Vehicle? SelectedVehicle { get; set; }
     
@@ -34,6 +39,7 @@ public class MainWindowViewModel : ViewModelBase
     public ReactiveCommand<Unit, Unit> SaveCommand { get; }
     
     public ReactiveCommand<Vehicle, Unit> DeleteCommand { get; }
+    public ReactiveCommand<Vehicle, Unit> EditCommand { get; }
 
     public MainWindowViewModel()
     {
@@ -42,13 +48,28 @@ public class MainWindowViewModel : ViewModelBase
         Vehicles.CollectionChanged += (_, _) =>
         {
             this.RaisePropertyChanged(nameof(LiczbaPojazdow));
+            this.RaisePropertyChanged(nameof(LiczbaWGarażu));
+            this.RaisePropertyChanged(nameof(LiczbaWTrasie));
+            this.RaisePropertyChanged(nameof(LiczbaWSerwisie));
         };
+
         
         AddCommand = ReactiveCommand.Create(AddVehicles);
         SaveCommand = ReactiveCommand.Create(SaveToJson);
         DeleteCommand = ReactiveCommand.Create<Vehicle>(DeleteVehicle);
+        EditCommand = ReactiveCommand.Create<Vehicle>(OpenEditWindow);
     }
 
+    private void OpenEditWindow(Vehicle vehicle)
+    {
+        var window = new EditVehicleWindow
+        {
+            DataContext = new EditVehicleViewModel(vehicle)
+        };
+
+        window.Show();
+    }
+    
     private void AddVehicles()
     {
         Vehicles.Add(new Vehicle

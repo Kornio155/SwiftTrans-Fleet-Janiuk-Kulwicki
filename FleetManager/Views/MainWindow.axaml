@@ -19,6 +19,9 @@
         <StackPanel>
             <TextBlock Text="Aplikacja do kontroli floty." Padding="10" TextAlignment="Center"/>
             <TextBlock Text="{Binding LiczbaPojazdow, StringFormat='Liczba pojazdów: {0}'}" Padding="10, 0, 10, 10"/>
+            <TextBlock Text="{Binding LiczbaWGarażu, StringFormat='W garażu: {0}'}" Padding="10, 0, 10, 10"/>
+            <TextBlock Text="{Binding LiczbaWTrasie, StringFormat='W trasie: {0}'}" Padding="10, 0, 10, 10"/>
+            <TextBlock Text="{Binding LiczbaWSerwisie, StringFormat='W serwisie: {0}'}" Padding="10, 0, 10, 10"/>
             <TextBlock Text="Dodawanie nowego auta" Padding="10, 0, 10, 10"/>
             <TextBox Watermark="Marka" Text="{Binding NowaMarka}"/>
             <TextBox Watermark="Model" Text="{Binding NowyModel}"/>
@@ -49,6 +52,9 @@
                                 <Button Content="Usuń"
                                         Command="{Binding DataContext.DeleteCommand, ElementName=VehiclesList}"
                                         CommandParameter="{Binding}" />
+                                <Button Content="Edytuj"
+                                        Command="{Binding DataContext.EditCommand, ElementName=VehiclesList}"
+                                        CommandParameter="{Binding}"/>
                             </StackPanel>
                         </Border>
                     </DataTemplate>
