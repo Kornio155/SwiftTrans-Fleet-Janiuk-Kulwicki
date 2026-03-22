@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
+using System.Linq;
 using System.Reactive;
 using System.Reactive.Linq;
 using System.Text.Json;
+using Avalonia.Controls;
 using FleetManager.Models;
 using ReactiveUI;
 using ReactiveUI.Fody.Helpers;
@@ -13,12 +15,19 @@ namespace FleetManager.ViewModels;
 
 public class MainWindowViewModel : ViewModelBase
 {
-    private const string Sciezka = "/home/kornel/RiderProjects/SwiftTrans-Fleet-Janiuk-Kulwicki/FleetManager/Assets/vehicles.json";
+    private const string Sciezka = "C:\\Users\\korne\\RiderProjects\\SwiftTrans-Fleet-Janiuk-Kulwicki\\FleetManager\\Assets\\vehicles.json";
 
     private static readonly JsonSerializerOptions JsonOptions = new() { WriteIndented = true };
 
     public ObservableCollection<Vehicle> Vehicles { get; } = [];
     public int LiczbaPojazdow => Vehicles.Count;
+    public int LiczbaWGarażu => Vehicles.Count(v => v.StatusPojazdu == "W garażu");
+
+    public int LiczbaWTrasie => Vehicles.Count(v => v.StatusPojazdu == "W trasie");
+
+    public int LiczbaWSerwisie => Vehicles.Count(v => v.StatusPojazdu == "W serwisie");
+    
+    [Reactive] public Vehicle? SelectedVehicle { get; set; }
     
     [Reactive] public string NowaMarka {get; set;} = string.Empty;
     [Reactive] public string NowyModel {get; set;} = string.Empty;
@@ -28,6 +37,8 @@ public class MainWindowViewModel : ViewModelBase
     
     public ReactiveCommand<Unit, Unit> AddCommand { get; }
     public ReactiveCommand<Unit, Unit> SaveCommand { get; }
+    
+    public ReactiveCommand<Vehicle, Unit> DeleteCommand { get; }
 
     public MainWindowViewModel()
     {
@@ -36,10 +47,15 @@ public class MainWindowViewModel : ViewModelBase
         Vehicles.CollectionChanged += (_, _) =>
         {
             this.RaisePropertyChanged(nameof(LiczbaPojazdow));
+            this.RaisePropertyChanged(nameof(LiczbaWGarażu));
+            this.RaisePropertyChanged(nameof(LiczbaWTrasie));
+            this.RaisePropertyChanged(nameof(LiczbaWSerwisie));
         };
+
         
         AddCommand = ReactiveCommand.Create(AddVehicles);
         SaveCommand = ReactiveCommand.Create(SaveToJson);
+        DeleteCommand = ReactiveCommand.Create<Vehicle>(DeleteVehicle);
     }
 
     private void AddVehicles()
@@ -85,4 +101,11 @@ public class MainWindowViewModel : ViewModelBase
         }
     }
     
+    private void DeleteVehicle(Vehicle vehicle)
+    {
+        if (vehicle != null)
+        {
+            Vehicles.Remove(vehicle);
+        }
+    }
 }

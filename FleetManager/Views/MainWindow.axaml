@@ -18,9 +18,10 @@
     <ScrollViewer>
         <StackPanel>
             <TextBlock Text="Aplikacja do kontroli floty." Padding="10" TextAlignment="Center"/>
-            
             <TextBlock Text="{Binding LiczbaPojazdow, StringFormat='Liczba pojazdów: {0}'}" Padding="10, 0, 10, 10"/>
-            
+            <TextBlock Text="{Binding LiczbaWGarażu, StringFormat='W garażu: {0}'}" Padding="10, 0, 10, 10"/>
+            <TextBlock Text="{Binding LiczbaWTrasie, StringFormat='W trasie: {0}'}" Padding="10, 0, 10, 10"/>
+            <TextBlock Text="{Binding LiczbaWSerwisie, StringFormat='W serwisie: {0}'}" Padding="10, 0, 10, 10"/>
             <TextBlock Text="Dodawanie nowego auta" Padding="10, 0, 10, 10"/>
             <TextBox Watermark="Marka" Text="{Binding NowaMarka}"/>
             <TextBox Watermark="Model" Text="{Binding NowyModel}"/>
@@ -29,10 +30,11 @@
             <TextBox Watermark="Status pojazdu (w garażu, w trasie, w serwisie)" Text="{Binding NowyStatus}"/>
 
             <Button Content="Dodaj pojazd" Command="{Binding AddCommand}"/>
+            <Button Content="Zapisz zmiany do JSON" Command="{Binding SaveCommand}"/>
             
-            
-            
-            <ListBox ItemsSource="{Binding Vehicles}">
+            <ListBox ItemsSource="{Binding Vehicles}"
+                     SelectedItem="{Binding SelectedVehicle}"
+                     Name="VehiclesList">
             
                 <ListBox.ItemTemplate>
                     <DataTemplate>
@@ -46,16 +48,15 @@
                                 <TextBlock Text="{Binding Model, StringFormat='Model: {0}'}"/>
                                 <TextBlock Text="{Binding RokProdukcji, StringFormat='Rok produkcji: {0}'}"/>
                                 <TextBlock Text="{Binding IloscPaliwa, StringFormat='Paliwo: {0}%'}"/>
-                                <TextBlock Text="{Binding StatusPojazdu, StringFormat='Status: {0}'}"/>
+                                <TextBlock Text="{Binding StatusPojazdu, StringFormat='Status: {0}'}"/> 
+                                <Button Content="Usuń"
+                                        Command="{Binding DataContext.DeleteCommand, ElementName=VehiclesList}"
+                                        CommandParameter="{Binding}" />
                             </StackPanel>
-
                         </Border>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
-            
-            <Button Content="Zapisz zmiany do JSON" Command="{Binding SaveCommand}"/>
-            
         </StackPanel>
     </ScrollViewer>
 </Window>
