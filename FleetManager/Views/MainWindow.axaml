@@ -52,6 +52,9 @@
                                 <Button Content="Usuń"
                                         Command="{Binding DataContext.DeleteCommand, ElementName=VehiclesList}"
                                         CommandParameter="{Binding}" />
+                                <Button Content="Edytuj"
+                                        Command="{Binding DataContext.EditCommand, ElementName=VehiclesList}"
+                                        CommandParameter="{Binding}"/>
                             </StackPanel>
                         </Border>
                     </DataTemplate>

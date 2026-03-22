@@ -7,7 +7,7 @@ using System.Reactive;
 using System.Reactive.Linq;
 using System.Text.Json;
 using Avalonia.Controls;
-using FleetManager.Models;
+using FleetManager.Views;
 using ReactiveUI;
 using ReactiveUI.Fody.Helpers;
 
@@ -39,6 +39,7 @@ public class MainWindowViewModel : ViewModelBase
     public ReactiveCommand<Unit, Unit> SaveCommand { get; }
     
     public ReactiveCommand<Vehicle, Unit> DeleteCommand { get; }
+    public ReactiveCommand<Vehicle, Unit> EditCommand { get; }
 
     public MainWindowViewModel()
     {
@@ -56,8 +57,19 @@ public class MainWindowViewModel : ViewModelBase
         AddCommand = ReactiveCommand.Create(AddVehicles);
         SaveCommand = ReactiveCommand.Create(SaveToJson);
         DeleteCommand = ReactiveCommand.Create<Vehicle>(DeleteVehicle);
+        EditCommand = ReactiveCommand.Create<Vehicle>(OpenEditWindow);
     }
 
+    private void OpenEditWindow(Vehicle vehicle)
+    {
+        var window = new EditVehicleWindow
+        {
+            DataContext = new EditVehicleViewModel(vehicle)
+        };
+
+        window.Show();
+    }
+    
     private void AddVehicles()
     {
         Vehicles.Add(new Vehicle

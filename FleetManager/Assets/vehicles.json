@@ -5,7 +5,7 @@
     "RokProdukcji": 2015,
     "IloscPaliwa": 80,
     "StatusPojazdu": "W serwisie",
-    "KolorTla": "#347527"
+    "KolorTla": "LightGreen"
   },
   {
     "Marka": "Volvo",
@@ -13,7 +13,7 @@
     "RokProdukcji": 2024,
     "IloscPaliwa": 5,
     "StatusPojazdu": "W gara\u017Cu",
-    "KolorTla": "#8a2b34"
+    "KolorTla": "Tomato"
   },
   {
     "Marka": "Iveco",
@@ -21,7 +21,7 @@
     "RokProdukcji": 2011,
     "IloscPaliwa": 69,
     "StatusPojazdu": "W trasie",
-    "KolorTla": "#347527"
+    "KolorTla": "LightGreen"
   },
   {
     "Marka": "Mercedes",
@@ -29,7 +29,7 @@
     "RokProdukcji": 1998,
     "IloscPaliwa": 23,
     "StatusPojazdu": "W gara\u017Cu",
-    "KolorTla": "#c49618"
+    "KolorTla": "Gold"
   },
   {
     "Marka": "Scania",
@@ -37,7 +37,7 @@
     "RokProdukcji": 2022,
     "IloscPaliwa": 10,
     "StatusPojazdu": "W trasie",
-    "KolorTla": "#8a2b34"
+    "KolorTla": "Tomato"
   },
   {
     "Marka": "Star",
@@ -45,7 +45,7 @@
     "RokProdukcji": 1976,
     "IloscPaliwa": 90,
     "StatusPojazdu": "W trasie",
-    "KolorTla": "#347527"
+    "KolorTla": "LightGreen"
   },
   {
     "Marka": "Jelcz",
@@ -53,7 +53,7 @@
     "RokProdukcji": 1965,
     "IloscPaliwa": 78,
     "StatusPojazdu": "W trasie",
-    "KolorTla": "#347527"
+    "KolorTla": "LightGreen"
   },
   {
     "Marka": "Man",
@@ -61,7 +61,7 @@
     "RokProdukcji": 1998,
     "IloscPaliwa": 46,
     "StatusPojazdu": "W gara\u017Cu",
-    "KolorTla": "#347527"
+    "KolorTla": "LightGreen"
   },
   {
     "Marka": "Volkswagen",
@@ -69,7 +69,7 @@
     "RokProdukcji": 1996,
     "IloscPaliwa": 54,
     "StatusPojazdu": "W gara\u017Cu",
-    "KolorTla": "#347527"
+    "KolorTla": "LightGreen"
   },
   {
     "Marka": "Ford",
@@ -77,7 +77,7 @@
     "RokProdukcji": 2005,
     "IloscPaliwa": 56,
     "StatusPojazdu": "W trasie",
-    "KolorTla": "#347527"
+    "KolorTla": "LightGreen"
   },
   {
     "Marka": "Opel",
@@ -85,7 +85,7 @@
     "RokProdukcji": 2007,
     "IloscPaliwa": 38,
     "StatusPojazdu": "W gara\u017Cu",
-    "KolorTla": "#347527"
+    "KolorTla": "LightGreen"
   },
   {
     "Marka": "Toyota",
@@ -93,7 +93,7 @@
     "RokProdukcji": 2004,
     "IloscPaliwa": 15,
     "StatusPojazdu": "W serwisie",
-    "KolorTla": "#c49618"
+    "KolorTla": "Gold"
   },
   {
     "Marka": "BMW",
@@ -101,6 +101,6 @@
     "RokProdukcji": 2002,
     "IloscPaliwa": 56,
     "StatusPojazdu": "W gara\u017Cu",
-    "KolorTla": "#347527"
+    "KolorTla": "LightGreen"
   }
 ]
