@@ -27,7 +27,9 @@
             <TextBox Watermark="Model" Text="{Binding NowyModel}"/>
             <TextBox Watermark="RokProdukcji" Text="{Binding NowyRokProdukcji}"/>
             <TextBox Watermark="Ilość paliwa" Text="{Binding NowaIloscPaliwa}"/>
-            <TextBox Watermark="Status pojazdu (w garażu, w trasie, w serwisie)" Text="{Binding NowyStatus}"/>
+            <ComboBox ItemsSource="{Binding Status}"
+                      SelectedItem="{Binding NowyStatus}"
+                      PlaceholderText="Wybierz status pojazdu"/>
 
             <Button Content="Dodaj pojazd" Command="{Binding AddCommand}"/>
             <Button Content="Zapisz zmiany do JSON" Command="{Binding SaveCommand}"/>

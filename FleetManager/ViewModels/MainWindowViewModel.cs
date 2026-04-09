@@ -15,7 +15,7 @@ namespace FleetManager.ViewModels;
 
 public class MainWindowViewModel : ViewModelBase
 {
-    private const string Sciezka = "C:\\Users\\korne\\RiderProjects\\SwiftTrans-Fleet-Janiuk-Kulwicki\\FleetManager\\Assets\\vehicles.json";
+    private const string Sciezka = "C:\\Users\\Komputer\\RiderProjects\\SwiftTrans-Fleet-Janiuk-Kulwicki\\FleetManager\\Assets\\vehicles.json";
 
     private static readonly JsonSerializerOptions JsonOptions = new() { WriteIndented = true };
 
@@ -40,6 +40,13 @@ public class MainWindowViewModel : ViewModelBase
     
     public ReactiveCommand<Vehicle, Unit> DeleteCommand { get; }
     public ReactiveCommand<Vehicle, Unit> EditCommand { get; }
+    
+    public List<string> Status { get; } = new()
+    {
+        "W garażu",
+        "W trasie",
+        "W serwisie"
+    };
 
     public MainWindowViewModel()
     {

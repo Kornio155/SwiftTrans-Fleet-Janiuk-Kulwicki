@@ -1,4 +1,5 @@
-﻿using ReactiveUI;
+﻿using System.Collections.Generic;
+using ReactiveUI;
 using System.Reactive;
 
 public class EditVehicleViewModel : ReactiveObject
@@ -12,6 +13,13 @@ public class EditVehicleViewModel : ReactiveObject
     public string StatusPojazdu { get; set; }
 
     public ReactiveCommand<Unit, Unit> SaveCommand { get; }
+    
+    public List<string> Status { get; } = new()
+    {
+        "W garażu",
+        "W trasie",
+        "W serwisie"
+    };
 
     public EditVehicleViewModel(Vehicle vehicle)
     {

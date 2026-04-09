@@ -13,7 +13,9 @@
         <TextBox Text="{Binding Model}"/>
         <TextBox Text="{Binding RokProdukcji}"/>
         <TextBox Text="{Binding IloscPaliwa}"/>
-        <TextBox Text="{Binding StatusPojazdu}"/>
+        <ComboBox ItemsSource="{Binding Status}"
+                  SelectedItem="{Binding StatusPojazdu}"/>
+
 
         <Button Content="Zapisz" Command="{Binding SaveCommand}"/>
     </StackPanel>
